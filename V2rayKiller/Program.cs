@@ -1,27 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 
 namespace V2rayKiller
 {
     class Program
     {
-        private static string V2RAY = "v2ray";
-        private static string V2RAY_RUNNER = "V2rayRunner";
+        private static string PNAME_V2RAY = "v2ray";
+        private static string PNAME_V2RAYRUNNER = "V2rayRunner";
 
         static void Main(string[] args)
         {
-            foreach (var process in Process.GetProcessesByName(V2RAY))
+            foreach (var process in Process.GetProcessesByName(PNAME_V2RAY))
             {
                 if (process.Id != Process.GetCurrentProcess().Id)
                 {
                     process.Kill();
                 }
             }
-            foreach (var process in Process.GetProcessesByName(V2RAY_RUNNER))
+            foreach (var process in Process.GetProcessesByName(PNAME_V2RAYRUNNER))
             {
                 if (process.Id != Process.GetCurrentProcess().Id)
                 {
